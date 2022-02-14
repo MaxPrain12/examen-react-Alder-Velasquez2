@@ -11,8 +11,8 @@ class Ejercicio1 extends React.Component {
         <h2>Ejercicio 1</h2>
         <ul>
           <li>
-           Sustituye el título del examen por componente llamado <b>Menu</b> que implemente una barra de navegación que permita cambiar 
-           entre los distintos ejercicios como si de distintas páginas se tratase. Se ha de cumplir lo siguiente:
+            Sustituye el título del examen por componente llamado <b>Menu</b> que implemente una barra de navegación que permita cambiar
+            entre los distintos ejercicios como si de distintas páginas se tratase. Se ha de cumplir lo siguiente:
             <ul>
               <li>
                 La barra de navegación implementa el componente de
@@ -23,11 +23,11 @@ class Ejercicio1 extends React.Component {
                 <b> - 1 punto</b>
               </li>
               <li>
-              El menú usará la variante de color de fondo y letras "light", se mostrará solamente 
-              si el tamaño de la pantalla es menor que el tamaño grande de Bootstrap, el menú contextual 
-              surgirá desde la parte izquierda y junto al título del examen se mostrará la imagen logo.png, 
-              ubicada en /src/assets/images{' '}
-              <b> - 0,75 puntos</b>
+                El menú usará la variante de color de fondo y letras "light", se mostrará solamente
+                si el tamaño de la pantalla es menor que el tamaño grande de Bootstrap, el menú contextual
+                surgirá desde la parte izquierda y junto al título del examen se mostrará la imagen logo.png,
+                ubicada en /src/assets/images{' '}
+                <b> - 0,75 puntos</b>
               </li>
               <li>
                 Bajo el título del examen solamente se deberá mostrar el
