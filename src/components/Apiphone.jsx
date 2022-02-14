@@ -6,13 +6,17 @@ class Apiphone extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: '',
       tableData: [],
       selectedItem: '',
-      name: '',
+      DatosTabla: [],
     };
   }
-
+  eventoName(item) {
+    let nombre = item.detail;
+    this.setState({
+      selectedItem: nombre,
+    });
+  }
   async componentDidMount() {
     const response = await fetch(
       'https://api-mobilespecs.azharimm.site/v2/brands/'
@@ -22,9 +26,22 @@ class Apiphone extends React.Component {
       tableData: responseData.data,
     });
   }
+  componentDidUpdate() {
+    if (this.state.selectedItem !== '') {
+      fetch(this.state.selectedItem)
+        .then((response) => response.json())
+        .then((data) =>
+          this.setState({
+            DatosTabla: data.phones,
+          })
+        );
+    } else {
+      console.log('No hay nada');
+    }
+  }
 
   render() {
-    return (
+    if (this.state.selectedItem !== '') {
       <div>
         <Container>
           <br />
@@ -33,22 +50,69 @@ class Apiphone extends React.Component {
           <Form>
             <Form.Select aria-label="Default select example">
               {this.state.tableData.map((item) => {
-                return <option>{item.brand_slug}</option>;
+                return (
+                  <option onClick={() => this.eventoName(item)}>
+                    {item.brand_name}
+                  </option>
+                );
               })}
             </Form.Select>
             <br />
             <br />
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
           </Form>
           <br />
           <br />
           <br />
+          <Container>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Nombre Telefono</th>
+                  <th>Slug</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.DatosTabla.map((item) => {
+                  return (
+                    <tr>
+                      <td>{item.phone_name}</td>
+                      <td>{item.slug}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </Container>
         </Container>
-        <TablaByfans />
-      </div>
-    );
+      </div>;
+    } else {
+      return (
+        <div>
+          <Container>
+            <br />
+            <br />
+            <br />
+            <Form>
+              <Form.Select aria-label="Default select example">
+                {this.state.tableData.map((item) => {
+                  return (
+                    <option onClick={() => this.eventoName(item)}>
+                      {item.brand_name}
+                    </option>
+                  );
+                })}
+              </Form.Select>
+              <br />
+              <br />
+            </Form>
+            <br />
+            <br />
+            <br />
+          </Container>
+          <TablaByfans />
+        </div>
+      );
+    }
   }
 }
 
