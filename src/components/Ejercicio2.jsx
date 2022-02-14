@@ -70,9 +70,7 @@ class Ejercicio2 extends React.Component {
   async encontrar() {
     const marca = this.valorMarcas.current.value;
 
-    const response = await fetch(
-      'http://api-mobilespecs.azharimm.site/v2/search?query= ' + marca
-    );
+    const response = await fetch(marca);
 
     const responseData = await response.json();
 
@@ -110,7 +108,7 @@ class Ejercicio2 extends React.Component {
 
           <select ref={this.valorMarcas}>
             {this.state.marcas.map((item) => {
-              return <option value={item.brand_name}>{item.brand_name}</option>;
+              return <option value={item.detail}>{item.brand_name}</option>;
             })}
           </select>
           <br />
