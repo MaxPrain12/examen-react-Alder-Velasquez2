@@ -1,6 +1,7 @@
 import Ejercicio1 from '../components/Ejercicio1';
 import Ejercicio2 from '../components/Ejercicio2';
 import Ejercicio3 from '../components/Ejercicio3';
+import Apiphone from '../components/Apiphone';
 
 export const PaginasApp = [
   {
@@ -20,5 +21,11 @@ export const PaginasApp = [
     path: '/Ejercicio3',
     title: 'Ejercicio3',
     component: Ejercicio3,
+  },
+  {
+    id: 4,
+    path: '/Apiphone',
+    title: 'Apiphone',
+    component: Apiphone,
   },
 ];
