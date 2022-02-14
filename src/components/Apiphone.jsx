@@ -4,6 +4,22 @@ import { Form, Button, Container } from 'react-bootstrap';
 class Apiphone extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      url: '',
+      tableData: [],
+      selectedItem: '',
+      name: '',
+    };
+  }
+
+  componentDidUpdate() {
+    fetch('https://api-mobilespecs.azharimm.site/v2/top-by-fans')
+      .then((response) => response.json())
+      .then((datos) =>
+        this.setState({
+          tableData: datos.data,
+        })
+      );
   }
 
   render() {
