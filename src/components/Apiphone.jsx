@@ -1,6 +1,5 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
-import Container from 'react-bootstrap/esm/Container';
+import { Form, Button, Container } from 'react-bootstrap';
 
 class Apiphone extends React.Component {
   constructor(props) {
@@ -9,7 +8,7 @@ class Apiphone extends React.Component {
 
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Form>
           <Form.Select aria-label="Default select example">
             <option>Open this select menu</option>
